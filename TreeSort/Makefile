@@ -7,7 +7,7 @@ SRC = libs/src/
 all : compile clear
 
 compile : $(SRC)main.o $(SRC)bin_tree.o $(SRC)struct.o
-	gcc -o bin_tree $(SRC)main.o $(SRC)bin_tree.o $(SRC)struct.o
+	gcc -o bin_tree.bin $(SRC)main.o $(SRC)bin_tree.o $(SRC)struct.o
 
 clear : 
 	rm $(SRC)*.o
