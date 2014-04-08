@@ -1,10 +1,18 @@
+#Begin of Makefile
+
+#Vars
+SRC = src/
+
+#Compilation Logic
 all : compile clear
 
-compile : main.o
-	gcc -o bin_calib main.o
+compile : $(SRC)main.o
+	gcc -o calib.bin $(SRC)main.o
 
-main.o : main.c
-	gcc -c main.c
+main.o : $(SRC)main.c
+	gcc -c $(SRC)main.c
 
 clear :
-	rm *.o
+	rm $(SRC)*.o
+
+#End of Makefile

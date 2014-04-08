@@ -1,16 +1,24 @@
+#Begin Makefile
+
+#Vars
+SRC = libs/src/
+
+#Compilation Logic
 all : compile clear
 
-compile : main.o bin_tree.o struct.o
-	gcc -o bin_tree main.o bin_tree.o struct.o
+compile : $(SRC)main.o $(SRC)bin_tree.o $(SRC)struct.o
+	gcc -o bin_tree $(SRC)main.o $(SRC)bin_tree.o $(SRC)struct.o
 
 clear : 
-	rm *.o
+	rm $(SRC)*.o
 
-main.o : main.c
-	gcc -c main.c
+main.o : $(SRC)main.c
+	gcc -c $(SRC)main.c
 
-bin_tree.o : bin_tree.c
-	gcc -c bin_tree.c
+bin_tree.o : $(SRC)bin_tree.c
+	gcc -c $(SRC)bin_tree.c
 
-struct.o : struct.c
-	gcc -c struct.c
+struct.o : $(SRC)struct.c
+	gcc -c $(SRC)struct.c
+
+#End Makefile
