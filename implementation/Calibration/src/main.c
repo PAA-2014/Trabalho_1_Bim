@@ -9,8 +9,8 @@ typedef enum enm_boolean {
 FALSE, TRUE
 } boolean;
 
-int num_instructions; // Passed by parameter - Defines how much instruction will be executed
-int num_cicles; // Passed by parameter - Defines the number of executions
+int long long num_instructions; // Passed by parameter - Defines how much instruction will be executed
+int long long num_cicles; // Passed by parameter - Defines the number of executions
 boolean debug; // Passed by Parameter - Defines if the program will print cicles time results
 
 /**
@@ -24,7 +24,7 @@ int to_int(char * string);
 int main(int argc, char ** argv){
 
 	debug = TRUE;
-	num_instructions = 1000000000;
+	num_instructions = 100000000000;
 	num_cicles = 4;
 
 	// Vars
@@ -43,12 +43,12 @@ int main(int argc, char ** argv){
 		cicles[i]->end = clock();
 
 		// Calculate the time_spent
-		cicles[i]->time_spent= (cicles[i]->end- cicles[i]->start / (double)CLOCKS_PER_SEC);
+		cicles[i]->time_spent= ((cicles[i]->end- cicles[i]->start) / (double)CLOCKS_PER_SEC);
 		total_time += cicles[i]->time_spent;
 
 		// If the user wants to see the time per cicle
 		if(debug)
-			printf("Cicle_%d : %f seconds\n",i,cicles[i]->time_spent);
+			printf("Cicle_%d : %.4f seconds\n",i,cicles[i]->time_spent);
 	}
 
 	// Calculate the number of instructions
@@ -56,8 +56,8 @@ int main(int argc, char ** argv){
 
 	// Print the Results
 	printf("\n################### Results ###################\n\n");
-	printf("Avarage Time : %f\n",avarage_time);
-	printf("Instructions Per Second : %f\n",num_instructions/avarage_time);
+	printf("Avarage Time : %.4f seconds\n",avarage_time);
+	printf("Instructions Per Second : %.4f instructions/second\n",num_instructions/avarage_time);
 
 	// Just to do not confuse with the console's prints
 	printf("\n");
