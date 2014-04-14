@@ -1,4 +1,4 @@
-Análise do TreeSort
+Análise Assintótica do TreeSort
 ==============
 
 Trabalho de Projeto e Análise de Algorítimos - 1º Bimestre
