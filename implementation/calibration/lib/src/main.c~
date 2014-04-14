@@ -11,7 +11,7 @@ int main(int argc, char ** argv){
 	
 	// Init TO REMOVE - Those variables are just for test the application
 		debug = TRUE;
-		num_instructions = 100000000;
+		num_instructions = 10000000000;
 		num_cicles = 400;
 	// End TO REMOVE
 

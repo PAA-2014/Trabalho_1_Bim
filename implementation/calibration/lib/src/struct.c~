@@ -3,6 +3,7 @@
 
 #include <time.h>
 
+// Define the boolean type
 typedef enum enum_boolean {
 FALSE, TRUE
 } boolean;

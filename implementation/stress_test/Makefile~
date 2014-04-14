@@ -7,7 +7,7 @@ SRC = lib/src/
 all : compile clear
 
 compile : $(SRC)main.o $(SRC)stress_test.o
-	gcc -o calib.bin $(SRC)main.o $(SRC)stress_test.o
+	gcc -o calib.bin $(SRC)main.o
 
 main.o : $(SRC)main.c
 	gcc -c $(SRC)main.c
