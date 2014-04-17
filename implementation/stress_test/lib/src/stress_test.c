@@ -1,5 +1,7 @@
 #include "../stress_test.h"
 
+environment_configurations configurations;
+
 // Init of Get Functions
 clock_t get_actual_time(){
 	return clock();
@@ -39,24 +41,30 @@ double calculate_instructions_per_seccond(int long long num_instructions, double
 // End of Calculate Functions
 
 // Execute Functions
-void execute_stress_test(int long long num_instructions, int long long num_cicles, boolean debug){
+void execute_stress_test(){
 
 	int actual_position;
-	double total_time = 0, avarage_time, instructions_per_seccond;
-	cicle ** cicles = new_cicle_array(num_cicles);
+	double total_time;
+	double avarage_time;
+	double instructions_per_seccond;
+	cicle ** cicles;
+	
+	total_time = 0;
+	cicles = new_cicle_array(configurations.num_cicles);
 
-	for(actual_position=0; actual_position<num_cicles; actual_position++){
+	for(actual_position=0; actual_position< configurations.num_cicles; actual_position++){
 		cicles[actual_position] = new_cicle();
 		
-		execute_cicle_test(cicles[actual_position], num_instructions);
+		execute_cicle_test(cicles[actual_position], configurations.num_instructions);
 		cicles[actual_position]->time_spent = calculate_time_spent(cicles[actual_position]);
 		
-		print_debug(debug, actual_position, cicles[actual_position]);
+		if(configurations.debug == TRUE)
+			print_debug(actual_position, cicles[actual_position]);
 	}
 	
-	total_time = calculate_total_time(cicles,num_cicles);
-	avarage_time = calculate_avarage_time(total_time, num_cicles);
-	instructions_per_seccond = calculate_instructions_per_seccond(num_instructions, avarage_time);
+	total_time = calculate_total_time(cicles, configurations.num_cicles);
+	avarage_time = calculate_avarage_time(total_time, configurations.num_cicles);
+	instructions_per_seccond = calculate_instructions_per_seccond(configurations.num_instructions, avarage_time);
 	
 	print_results(avarage_time, instructions_per_seccond);
 }
@@ -75,8 +83,7 @@ inline void execute_instructions_per_seccond_test(int long long num_instructions
 // Enf of Execute Functions
 
 // Init of Print Functions
-inline void print_debug(boolean debug, int pos_cicle, cicle * actual_cicle){
-	if(debug)
+void print_debug(int pos_cicle, cicle * actual_cicle){
 		printf("Cicle_%d : %.4f seconds\n",pos_cicle,actual_cicle->time_spent);
 }
 

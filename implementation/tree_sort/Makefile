@@ -1,7 +1,7 @@
 #Begin Makefile
 
 #Vars
-SRC = libs/src/
+SRC = lib/src/
 
 #Compilation Logic
 all : compile clear

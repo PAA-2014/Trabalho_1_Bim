@@ -27,7 +27,7 @@ double calculate_instructions_per_seccond(int long long num_instructions, double
 // End of Calculate Functions
 
 // Execute Functions
-void execute_stress_test(int long long num_instructions, int long long num_cicles, boolean debug);
+void execute_stress_test();
 
 void execute_cicle_test(cicle * actual_cicle, int long long num_instructions);
 
@@ -35,7 +35,7 @@ inline void execute_instructions_per_seccond_test(int long long num_instructions
 // Enf of Execute Functions
 
 // Init of Print Functions
-void print_debug(boolean debug, int pos_cicle, cicle * actual_cicle);
+void print_debug(int pos_cicle, cicle * actual_cicle);
 
 void print_results(double avarage_time, double instructions_per_seccond);
 // Enf of Print Functions
