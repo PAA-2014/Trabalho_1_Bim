@@ -83,7 +83,7 @@ void set_num_cicles(int value){
 }
 
 void set_debug(boolean value){
-	debug = TRUE;
+	configurations.debug = TRUE;
 }
 
 boolean has_no_parameters(int parameter_count){
