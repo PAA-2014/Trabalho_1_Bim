@@ -1,4 +1,4 @@
-/*#ifndef PARAMETER_CHECKER_H
+#ifndef PARAMETER_CHECKER_H
 #define PARAMETER_CHECKER_H
 
 #include <stdio.h>
@@ -9,7 +9,7 @@ boolean are_valid_parameters(int parameter_count, String * parameter_values);
 
 void set_environment_configuration_from_parameters(int parameter_count, String * parameter_values);
 
-int recovery_number_from_next_quantitative_parameter(String * parameter_values, int actual_position);
+int recovery_number_from_next_number_value_parameter(String * parameter_values, int actual_position);
 
 void set_num_instructions(int value);
 
@@ -33,4 +33,4 @@ String get_parameter(String * parameter_values, int actual_position);
 
 String get_next_parameter(String * parameter_values, int actual_position);
 
-#endif*/
+#endif
