@@ -1,0 +1,18 @@
+SRC = lib/src/
+
+all : compile clean
+
+compile : $(SRC)main.o $(SRC)make_random_binary_file.o $(SRC)parameter_checker.o
+	gcc -o make_random_binary_file.bin $(SRC)main.o $(SRC)make_random_binary_file.o $(SRC)parameter_checker.o
+
+make_random_binary_file.o : $(SRC)make_random_binary_file.c
+	gcc -c $(SRC)make_random_binary_file.c
+
+parameter_checker.o : $(SRC)parameter_checker.c
+	gcc -c $(SRC)parameter_checker.c
+
+main.o : $(SRC)main.c
+	gcc -c $(SRC)main.c
+
+clean : 
+	rm $(SRC)*.o
