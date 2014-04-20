@@ -7,8 +7,8 @@
 #define short_debug "-d"
 #define extensive_debug "-debug"
 
-#define short_cicle "-c"
-#define extensive_cicle "-cicles"
+#define short_cicles "-c"
+#define extensive_cicles "-cicles"
 
 #define short_instructions "-i"
 #define extensive_instructions "-instructions"
