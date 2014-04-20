@@ -80,19 +80,20 @@ inline void execute_instructions_per_seccond_test(int long long num_instructions
 
 	while(aux_num_instructions--);
 }
-// Enf of Execute Functions
+// End of Execute Functions
 
 // Init of Print Functions
-void print_debug(int pos_cicle, cicle * actual_cicle){
-		printf("Cicle_%d : %.4f seconds\n",pos_cicle,actual_cicle->time_spent);
+void print_debug(int position_cicle, cicle * actual_cicle){
+	printf("Cicle_%02d : %'.4f seconds\n", position_cicle+1, actual_cicle->time_spent);
 }
 
 void print_results(double avarage_time, double instructions_per_seccond){
 	printf("\n################### Results ###################\n\n");
-	printf("Avarage Time : %.4f seconds\n",avarage_time);
-	printf("Instructions Per Second : %.4f instructions/second\n", instructions_per_seccond);
+	printf("Avarage Time : %'.4f seconds\n",avarage_time);
+	printf("Instructions Per Second : %'.4f instructions/second\n", instructions_per_seccond);
 
 	// Just to do not confuse with the console's prints
 	printf("\n");
 }
+
 // Enf of Print Functions

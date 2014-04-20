@@ -35,7 +35,7 @@ inline void execute_instructions_per_seccond_test(int long long num_instructions
 // Enf of Execute Functions
 
 // Init of Print Functions
-void print_debug(int pos_cicle, cicle * actual_cicle);
+void print_debug(int position_cicle, cicle * actual_cicle);
 
 void print_results(double avarage_time, double instructions_per_seccond);
 // Enf of Print Functions
