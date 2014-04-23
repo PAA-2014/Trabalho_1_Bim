@@ -9,6 +9,8 @@ boolean are_valid_parameters(int parameter_count, String * parameter_values);
 
 boolean has_no_parameters(int parameter_count);
 
+boolean has_less_than_minimum_number_parameters(int parameter_count);
+
 boolean validate_parameters(int parameter_count, String * parameter_values);
 
 String get_parameter(String * parameter_values, int actual_position);
@@ -17,7 +19,7 @@ boolean is_optional_parameter(String definition_parameter);
 
 boolean is_mandatory_parameter(String definition_parameter);
 
-boolean is_valid_next_value_parameter(int actual_position ,String * parameter_values);
+boolean is_valid_next_numeric_value_parameter(int actual_position ,String * parameter_values);
 
 int recovery_number_from_next_value_parameter(String * parameter_values, int actual_position);
 

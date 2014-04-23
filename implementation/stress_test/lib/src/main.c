@@ -13,9 +13,9 @@ environment_configurations configurations;
 void set_numeric_locale(String locale);
 
 int main(int parameter_count, String * parameter_values){
-
+	
 	set_numeric_locale(BRAZILIAN_LOCALE);
-
+	
 	if(are_valid_parameters(parameter_count, parameter_values)){
 		set_environment_configuration_from_parameters(parameter_count, parameter_values);
 		execute_stress_test();

@@ -1,5 +1,6 @@
 #include "../parameter_checker.h"
 
+#define minimum_number_parameters 5
 #define initial_position 1
 #define jump_to_next_definition_parameter() actual_position++
 
@@ -17,19 +18,22 @@
 environment_configurations configurations;
 
 boolean are_valid_parameters(int parameter_count, String * parameter_values){
-	if(has_no_parameters(parameter_count)) {
+	if(has_no_parameters(parameter_count)
+		|| has_less_than_minimum_number_parameters(parameter_count))
 		return FALSE;
-	} else {
+	else
 		return validate_parameters(parameter_count, parameter_values);
-	}
 }
 
 boolean has_no_parameters(int parameter_count){
 	return (parameter_count <= 1);
 }
 
-boolean validate_parameters(int parameter_count, String * parameter_values){
+boolean has_less_than_minimum_number_parameters(int parameter_count){
+	return (parameter_count < minimum_number_parameters);
+}
 
+boolean validate_parameters(int parameter_count, String * parameter_values){
 	int actual_position; // Be ware of the #define
 	String actual_definition_parameter; // Parameters like -d, -c, -i
 	
@@ -39,7 +43,7 @@ boolean validate_parameters(int parameter_count, String * parameter_values){
 		if(is_optional_parameter(actual_definition_parameter))
 			continue;
 		else if(is_mandatory_parameter(actual_definition_parameter)){
-			if(is_valid_next_value_parameter(actual_position, parameter_values))
+			if(is_valid_next_numeric_value_parameter(actual_position, parameter_values))
 				jump_to_next_definition_parameter();
 			else
 				return FALSE;
@@ -63,7 +67,7 @@ boolean is_mandatory_parameter(String definition_parameter){
 			|| is_parameter_num_instructions(definition_parameter));
 }
 
-boolean is_valid_next_value_parameter(int actual_position ,String * parameter_values){
+boolean is_valid_next_numeric_value_parameter(int actual_position ,String * parameter_values){
 	int number_value_parameter;
 	
 	number_value_parameter = recovery_number_from_next_value_parameter(parameter_values, actual_position);
@@ -90,7 +94,6 @@ boolean is_valid_number(int value){
 }
 
 void set_environment_configuration_from_parameters(int parameter_count, String * parameter_values){
-
 	int actual_position; // Be ware of the #define
 	int number_value_parameter; // Number parameters, complements to definition_parameters
 	String actual_definition_parameter; // Parameters like -d, -c, -i
@@ -101,15 +104,17 @@ void set_environment_configuration_from_parameters(int parameter_count, String *
 		if(is_parameter_debug(actual_definition_parameter))
 			set_debug(TRUE);
 		else{
+			
 			number_value_parameter = recovery_number_from_next_value_parameter(parameter_values, actual_position);
 			
 			if(is_parameter_num_cicles(actual_definition_parameter))
 				set_num_cicles(number_value_parameter);
 			else if(is_parameter_num_instructions(actual_definition_parameter))
 				set_num_instructions(number_value_parameter);
+				
+			jump_to_next_definition_parameter();
 		}
 	}
-	
 }
 
 void set_num_instructions(int value){
@@ -125,8 +130,8 @@ void set_debug(boolean value){
 }
 
 boolean is_parameter_num_cicles(String definition_parameter){
-	return (are_equal_strings(definition_parameter, short_cicle) 
-			|| are_equal_strings(definition_parameter, extensive_cicle));
+	return (are_equal_strings(definition_parameter, short_cicles) 
+			|| are_equal_strings(definition_parameter, extensive_cicles));
 }
 
 boolean is_parameter_num_instructions(String definition_parameter){
