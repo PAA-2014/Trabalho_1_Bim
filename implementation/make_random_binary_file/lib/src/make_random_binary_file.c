@@ -1,13 +1,13 @@
 #include "../make_random_binary_file.h"
 
-environment_configurations configurations;
+environment_configurations configurations; // LOOK AT THIS, THIS PART OF CODE IS AMAZING
 
 void make_random_binary_file(){
 	
 	int * random_array;
 	int aux_amount_numbers;
 	
-	set_seeder(configurations.seeder);
+	set_random_seeder(configurations.seeder);
 	
 	random_array = make_random_array(configurations.amount_numbers, configurations.bottom_limit, configurations.top_limit);
 	
@@ -15,15 +15,7 @@ void make_random_binary_file(){
 	
 }
 
-void write_random_array_on_binary_file(String file_path, int * random_array, int amount_numbers){
-	FILE * file_to_write = fopen(file_path,"wb+");
-	
-	fwrite(random_array, amount_numbers, sizeof(int), file_to_write);
-	
-	fclose(file_to_write);
-}
-
-inline void set_seeder(int seeder){
+inline void set_random_seeder(int seeder){
 	srand(seeder);
 }
 
@@ -74,10 +66,9 @@ int limit_random_number(unsigned int random_number, int bottom_limit, int top_li
 }
 
 int limit_random_top(int random_number, int top_limit){
-	return (random_number % top_limit);
+	return (random_number % top_limit+1);
 }
 
 int limit_random_bottom(int random_number, int bottom_limit){
 	return (random_number + bottom_limit);
 }
-

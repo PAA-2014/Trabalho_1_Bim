@@ -2,8 +2,11 @@ SRC = lib/src/
 
 all : compile clean
 
-compile : $(SRC)main.o $(SRC)make_random_binary_file.o $(SRC)parameter_checker.o
-	gcc -o make_random_binary_file.bin $(SRC)main.o $(SRC)make_random_binary_file.o $(SRC)parameter_checker.o
+compile : $(SRC)main.o $(SRC)make_random_binary_file.o $(SRC)file.c $(SRC)parameter_checker.o
+	gcc -o make_random_binary_file.bin $(SRC)main.o $(SRC)make_random_binary_file.o $(SRC)file.c $(SRC)parameter_checker.o
+
+file.o : $(SRC)file.c
+	gcc -c $(SRC)file.c
 
 make_random_binary_file.o : $(SRC)make_random_binary_file.c
 	gcc -c $(SRC)make_random_binary_file.c
