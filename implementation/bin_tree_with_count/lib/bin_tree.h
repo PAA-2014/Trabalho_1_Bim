@@ -11,7 +11,7 @@ void tree_sort();
 
 bin_tree_node * transform_array_to_bin_tree(int * array, int array_size);
 
-bin_tree_node * add_bin_tree_node(bin_tree_node * root, bin_tree_node * new_node);
+bin_tree_node * add_bin_tree_node(bin_tree_node * root, int value);
 
 bin_tree_node * new_bin_tree_node(int value);
 

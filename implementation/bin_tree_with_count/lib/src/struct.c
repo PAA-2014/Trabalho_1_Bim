@@ -33,6 +33,7 @@ typedef struct tp_debug_informations{
 
 typedef struct tp_bin_tree_node {
         int value;
+        int count;
         struct tp_bin_tree_node * up;
         struct tp_bin_tree_node * left;
         struct tp_bin_tree_node * right;

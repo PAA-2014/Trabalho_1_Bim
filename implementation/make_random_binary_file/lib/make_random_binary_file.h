@@ -2,6 +2,8 @@
 #define MAKE_RANDOM_BINARY_FILE_H
 
 #include "file.h"
+#include "util.h"
+#include "debug.h"
 
 #include "src/struct.c"
 

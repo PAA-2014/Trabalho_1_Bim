@@ -45,31 +45,31 @@ bin_tree_node * transform_array_to_bin_tree(int * array, int array_size){
 
 	int actual_position;
 	bin_tree_node * root_node;
-	bin_tree_node * to_insert_node;
 	
 	root_node = NULL;
 	
-	for(actual_position =0; actual_position< array_size; actual_position++){
-		to_insert_node = new_bin_tree_node(array[actual_position]);
-		root_node = add_bin_tree_node(root_node, to_insert_node);
-	}
-	
-	free(to_insert_node);
+	for(actual_position =0; actual_position< array_size; actual_position++)
+		root_node = add_bin_tree_node(root_node, array[actual_position]);
 	
 	return root_node;
 }
 
-bin_tree_node * add_bin_tree_node(bin_tree_node * root, bin_tree_node * new_node){
+bin_tree_node * add_bin_tree_node(bin_tree_node * root, int value){
 
 	if(root == NULL)
-        return new_node;
+        return new_bin_tree_node(value);
+        
+    if(root->value == value){
+    	root->count++;
+    	return root;
+    }
 
-	if(new_node->value >= root->value){
-		root->right = add_bin_tree_node(root->right,new_node);
+	if(value >= root->value){
+		root->right = add_bin_tree_node(root->right,value);
 		root->right->up = root;
 	}
 	else{
-		root->left = add_bin_tree_node(root->left,new_node);
+		root->left = add_bin_tree_node(root->left,value);
 		root->left->up = root;
 	}
 
@@ -82,6 +82,7 @@ bin_tree_node * new_bin_tree_node(int value){
 	bin_tree_node * node = (bin_tree_node *)malloc(sizeof(bin_tree_node)*1);
 
 	node->up =node->right =node->left =NULL;
+	node->count =1;
 	node->value =value;
 
 	return node;
@@ -102,8 +103,11 @@ void transform_bin_tree_to_array(bin_tree_node * root){
 	if(root == NULL)
 		return;
 
+	int actual_position;
+
 	transform_bin_tree_to_array(root->left);
-	add_node_to_array(root->value);
+	for(actual_position =0;actual_position <root->count; actual_position++)
+		add_node_to_array(root->value);
 	transform_bin_tree_to_array(root->right);
 }
 

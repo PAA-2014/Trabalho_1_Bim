@@ -7,7 +7,7 @@ SRC = lib/src/
 all : compile clear
 
 compile : $(SRC)main.o $(SRC)bin_tree.o $(SRC)parameter_checker.o $(SRC)file.o $(SRC)util.o $(SRC)debug.o $(SRC)struct.o
-	gcc -o bin_tree.bin $(SRC)main.o $(SRC)bin_tree.o $(SRC)parameter_checker.o $(SRC)file.o $(SRC)util.o $(SRC)debug.o $(SRC)struct.o
+	gcc -o bin_tree_with_count.bin $(SRC)main.o $(SRC)bin_tree.o $(SRC)parameter_checker.o $(SRC)file.o $(SRC)util.o $(SRC)debug.o $(SRC)struct.o
 
 clear : 
 	rm $(SRC)*.o
