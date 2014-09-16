@@ -22,7 +22,7 @@ void tree_sort(){
 	log_end_transform_array_on_binary_tree();
 	
 	log_init_transform_binary_tree_on_array();
-	log_init_sorted_array();
+	init_sorted_array();
 	transform_bin_tree_to_array(root_node);
 	//free_bin_tree(root_node);
 	log_end_transform_binary_tree_on_array();
@@ -119,7 +119,7 @@ void add_node_to_array(int value){
 	actual_position++;
 }
 
-void log_init_sorted_array(){
+void init_sorted_array(){
 
 	actual_position = 0;
 	sorted_array = new_int_array(configurations.amount_numbers);

@@ -19,7 +19,7 @@ typedef struct tp_environment_configurations{
 
 typedef struct tp_interval{
 	clock_t start_time;
-	clock_t log_end_time;
+	clock_t end_time;
 } interval;
 
 typedef struct tp_debug_informations{

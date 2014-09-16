@@ -21,7 +21,7 @@ void write_array_on_text_file(String file_path, int * array, int amount_numbers)
 	
 	int actual_position;
 	for(actual_position=0; actual_position< amount_numbers; actual_position++){
-		if((actual_position > 0) && is_log_end_of_line(actual_position, algarisms_per_number))
+		if((actual_position > 0) && is_end_of_line(actual_position, algarisms_per_number))
 			fprintf(file_to_write, "\n");
 			
 		fprintf(file_to_write, format, array[actual_position]);

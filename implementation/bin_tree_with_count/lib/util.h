@@ -48,7 +48,7 @@ String generate_format_to_impress(int max_algarisms);
 
 int * new_int_array(unsigned int size);
 
-boolean is_log_end_of_line(int actual_number, int algarisms_per_number);
+boolean is_end_of_line(int actual_number, int algarisms_per_number);
 
 int numbers_to_write_per_line(int algarisms_per_number);
 

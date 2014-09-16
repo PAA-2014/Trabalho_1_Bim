@@ -28,7 +28,7 @@ double calculate_total_time(cicle ** cicles, int long long num_cicles){
 }
 
 double calculate_time_spent(cicle * actual_cicle){
-	return ((actual_cicle->log_end_time - actual_cicle->start_time) / (double)CLOCKS_PER_SEC);
+	return ((actual_cicle->end_time - actual_cicle->start_time) / (double)CLOCKS_PER_SEC);
 }
 
 double calculate_avarage_time(double total_time, int long long num_cicles){
@@ -72,7 +72,7 @@ void execute_stress_test(){
 void execute_cicle_test(cicle * actual_cicle, int long long num_instructions){
 	actual_cicle->start_time = get_actual_time();
 	execute_instructions_per_seccond_test(num_instructions);
-	actual_cicle->log_end_time = get_actual_time();	
+	actual_cicle->end_time = get_actual_time();	
 }
 
 inline void execute_instructions_per_seccond_test(int long long num_instructions){
