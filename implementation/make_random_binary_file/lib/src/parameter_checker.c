@@ -85,7 +85,7 @@ void set_environment_configuration_from_parameters(int parameter_count, String *
 	String string_value_parameter; // String parameters, complements to definition_parameters
 	String actual_definition_parameter; // Parameters like -d, -c, -i
 	
-	init_optinional_parameters();
+	log_init_optinional_parameters();
 
 	for(actual_position= INITIAL_POSITION; actual_position<parameter_count; actual_position++) {
 		actual_definition_parameter = get_parameter(parameter_values, actual_position);
@@ -210,7 +210,7 @@ String get_next_parameter(String * parameter_values, int actual_position){
 	return get_parameter(parameter_values, actual_position+1);
 }
 
-void init_optinional_parameters(){
+void log_init_optinional_parameters(){
 
 	set_top_limit(0);
 	set_bottom_limit(0);

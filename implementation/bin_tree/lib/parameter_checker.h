@@ -46,7 +46,7 @@ String get_next_parameter(String * parameter_values, int actual_position);
 
 void set_environment_configuration_from_parameters(int parameter_count, String * parameter_values);
 
-void init_optinional_parameters();
+void log_init_optinional_parameters();
 
 void set_file_path(String value);
 

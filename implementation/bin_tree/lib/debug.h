@@ -8,28 +8,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void init_process_debug();
+void log_init_process_debug();
 
-void init_recovery_array();
+void log_init_recovery_array();
 
-void init_transform_array_on_binary_tree();
+void log_init_transform_array_on_binary_tree();
 
-void init_transform_binary_tree_on_array();
+void log_init_transform_binary_tree_on_array();
 
-void init_write_array_on_binary_file();
+void log_init_write_array_on_binary_file();
 
-void init_write_array_on_text_file();
+void log_init_write_array_on_text_file();
 
-void end_process_debug();
+void log_end_process_debug();
 
-void end_recovery_array();
+void log_end_recovery_array();
 
-void end_transform_array_on_binary_tree();
+void log_end_transform_array_on_binary_tree();
 
-void end_transform_binary_tree_on_array();
+void log_end_transform_binary_tree_on_array();
 
-void end_write_array_on_binary_file();
+void log_end_write_array_on_binary_file();
 
-void end_write_array_on_text_file();
+void log_end_write_array_on_text_file();
 
 #endif

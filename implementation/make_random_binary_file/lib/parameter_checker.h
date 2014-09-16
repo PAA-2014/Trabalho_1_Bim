@@ -42,7 +42,7 @@ String recovery_string_from_next_value_parameter(String * parameter_values, int 
 
 String get_next_parameter(String * parameter_values, int actual_position);
 
-void init_optinional_parameters();
+void log_init_optinional_parameters();
 
 void set_top_limit(int value);
 

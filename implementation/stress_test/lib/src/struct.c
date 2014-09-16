@@ -11,7 +11,7 @@ FALSE, TRUE
 
 typedef struct tp_cicle{
 	clock_t start_time;
-	clock_t end_time;
+	clock_t log_end_time;
 	double time_spent;
 }cicle;
 

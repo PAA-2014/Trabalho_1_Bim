@@ -3,7 +3,7 @@
 environment_configurations configurations;
 debug_informations debug;
 
-void init_process_debug(){
+void log_init_process_debug(){
 
 	if(configurations.debug){
 		debug.process.start_time = get_actual_time();
@@ -11,7 +11,7 @@ void init_process_debug(){
 	}
 }
 
-void init_generate_array_debug(){
+void log_init_generate_array_debug(){
 
 	if(configurations.debug){
 		debug.generate_array.start_time = get_actual_time();
@@ -19,7 +19,7 @@ void init_generate_array_debug(){
 	}
 }
 
-void init_write_on_binary_file(){
+void log_init_write_on_binary_file(){
 
 	if(configurations.debug){
 		debug.write_on_binary_file.start_time = get_actual_time();
@@ -27,7 +27,7 @@ void init_write_on_binary_file(){
 	}
 }
 
-void init_write_on_text_file(){
+void log_init_write_on_text_file(){
 
 	if(configurations.debug){
 		debug.write_on_text_file.start_time = get_actual_time();
@@ -35,34 +35,34 @@ void init_write_on_text_file(){
 	}
 }
 
-void end_process_debug(){
+void log_end_process_debug(){
 
 	if(configurations.debug){
-		debug.process.end_time = get_actual_time();
+		debug.process.log_end_time = get_actual_time();
 		printf("Generated and wrote %d numbers in %f seconds.\n\n", configurations.amount_numbers, calc_time(debug.process));
 	}
 }
 
-void end_generate_array_debug(){
+void log_end_generate_array_debug(){
 
 	if(configurations.debug){
-		debug.generate_array.end_time = get_actual_time();
+		debug.generate_array.log_end_time = get_actual_time();
 		printf("Generated %d numbers in %f seconds.\n\n",configurations.amount_numbers, calc_time(debug.generate_array));
 	}
 }
 
-void end_write_on_binary_file(){
+void log_end_write_on_binary_file(){
 
 	if(configurations.debug){
-		debug.write_on_binary_file.end_time = get_actual_time();
+		debug.write_on_binary_file.log_end_time = get_actual_time();
 		printf("Wrote %d numbers on binary file \"%s\" in %f seconds.\n\n",configurations.amount_numbers, configurations.file_path, calc_time(debug.write_on_binary_file));
 	}
 }
 
-void end_write_on_text_file(){
+void log_end_write_on_text_file(){
 
 	if(configurations.debug){
-		debug.write_on_text_file.end_time = get_actual_time();
+		debug.write_on_text_file.log_end_time = get_actual_time();
 		printf("Wrote %d numbers on text file \"%s\" in %f seconds.\n\n",configurations.amount_numbers, configurations.aux_file_path, calc_time(debug.write_on_text_file));
 	}
 }

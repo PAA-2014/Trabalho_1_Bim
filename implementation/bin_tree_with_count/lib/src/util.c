@@ -175,7 +175,7 @@ int * new_int_array(unsigned int size){
 	return (int *)malloc(sizeof(int)*size);
 }
 
-boolean is_end_of_line(int actual_number, int algarisms_per_number){
+boolean is_log_end_of_line(int actual_number, int algarisms_per_number){
 	return ((actual_number % numbers_to_write_per_line(algarisms_per_number)) == 0); 
 }
 
@@ -188,5 +188,5 @@ clock_t get_actual_time(){
 }
 
 double calc_time(interval interval_time){
-	return ((interval_time.end_time - interval_time.start_time) / (double)CLOCKS_PER_SEC);
+	return ((interval_time.log_end_time - interval_time.start_time) / (double)CLOCKS_PER_SEC);
 }

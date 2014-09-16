@@ -21,6 +21,6 @@ void transform_bin_tree_to_array(bin_tree_node * root);
 
 void add_node_to_array(int value);
 
-void init_sorted_array();
+void log_init_sorted_array();
 
 #endif // End of Definition

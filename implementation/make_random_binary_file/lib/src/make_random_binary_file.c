@@ -5,25 +5,25 @@ debug_informations debug;
 
 void make_random_binary_file(){
 
-	init_process_debug();
+	log_init_process_debug();
 
 	int * random_array;
 	
 	set_random_seeder(configurations.seeder);
 
-	init_generate_array_debug();
+	log_init_generate_array_debug();
 	random_array = make_random_array(configurations.amount_numbers, configurations.bottom_limit, configurations.top_limit);
-	end_generate_array_debug();
+	log_end_generate_array_debug();
 	
-	init_write_on_binary_file();
+	log_init_write_on_binary_file();
 	write_array_on_binary_file(configurations.file_path, random_array, configurations.amount_numbers);
-	end_write_on_binary_file();
+	log_end_write_on_binary_file();
 	
-	init_write_on_text_file();
+	log_init_write_on_text_file();
 	write_array_on_text_file(configurations.aux_file_path, random_array, configurations.amount_numbers);
-	end_write_on_text_file();
+	log_end_write_on_text_file();
 	
-	end_process_debug();
+	log_end_process_debug();
 }
 
 inline void set_random_seeder(int seeder){
